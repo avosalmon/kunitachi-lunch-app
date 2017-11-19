@@ -1,0 +1,12 @@
+.shop-info {
+  ion-icon {
+    font-size: 14px;
+    margin-right: 2px;
+  }
+}
+
+.card-ios p {
+  &.shop-info {
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,13 @@
+.shop-image {
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+  }
+}

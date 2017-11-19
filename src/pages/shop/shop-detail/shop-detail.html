@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="shop">{{ shop.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="shop">
+  <ion-card>
+    <ion-slides pager>
+      <ion-slide *ngFor="let image of shop.images">
+        <shop-image [imageUrl]="image.url"></shop-image>
+      </ion-slide>
+    </ion-slides>
+    <ion-card-content>
+      <ion-card-title>{{ shop.name }}</ion-card-title>
+      <p>
+        <ion-chip class="shop-tag" *ngFor="let tag of shop.tags">
+          <ion-label>#{{ tag.name }}</ion-label>
+        </ion-chip>
+      </p>
+      <p class="shop-description">{{ shop.description }}</p>
+      <ion-segment [(ngModel)]="mode">
+        <ion-segment-button value="picture">投稿写真</ion-segment-button>
+        <ion-segment-button value="info">店舗情報</ion-segment-button>
+        <ion-segment-button value="map">マップ</ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="mode">
+        <shop-info [shop]="shop" *ngSwitchCase="'info'"></shop-info>
+        <shop-map [place]="shop.name" *ngSwitchCase="'map'"></shop-map>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab right bottom *ngIf="mode === 'picture'">
+    <button ion-fab (tap)="openModal()"><ion-icon name="camera"></ion-icon></button>
+  </ion-fab>
+</ion-content>

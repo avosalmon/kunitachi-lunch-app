@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>お店一覧</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- TODO: try navigation with (tap) event -->
+  <ion-card *ngFor="let shop of shops" tappable [navPush]="shopDetailPage" [navParams]="{ shop: shop }">
+    <shop-image [imageUrl]="shop.image_url"></shop-image>
+    <div class="shop-tags">
+      <ion-chip class="shop-tag" *ngFor="let tag of shop.tags">
+        <ion-label>#{{ tag.name }}</ion-label>
+      </ion-chip>
+    </div>
+    <div class="shop-title">{{ shop.name }}</div>
+  </ion-card>
+</ion-content>

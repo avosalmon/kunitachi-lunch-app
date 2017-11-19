@@ -1,0 +1,19 @@
+<p class="shop-info">
+  <ion-icon name="time"></ion-icon>
+  <span>営業時間 {{ openingHours() }}</span>
+</p>
+<p class="shop-info">
+  <ion-icon name="remove-circle"></ion-icon>
+  <span>定休日 {{ shop.closed_day }}</span>
+</p>
+<p class="shop-info">
+  <ion-icon name="pin"></ion-icon>
+  <span>{{ shop.address }}</span>
+</p>
+<p class="shop-info">
+  <ion-icon name="call"></ion-icon>
+  <span>{{ shop.phone }}</span>
+</p>
+<p class="shop-info">
+  <ion-icon name="link"></ion-icon><a href="{{ shop.link_url }}">食べログ</a>
+</p>
